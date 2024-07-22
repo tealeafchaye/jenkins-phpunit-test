@@ -3,6 +3,8 @@ pipeline {
   stages {
     stage('Build') {
             steps {
+                sh 'sudo apt-get update'
+                sh  'sudo apt-get install git'
                 sh 'apt-get update'
                 sh 'apt-get install -y php-cli php-mbstring php-curl php-xml unzip' // Install required PHP extensions
                 sh 'curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer'
